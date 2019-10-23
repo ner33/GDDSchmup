@@ -9,6 +9,14 @@ public class ShrinkScript : MonoBehaviour
     private Collider2D colliderComponent;
     private SpriteRenderer rendererComponent;
 
+    void Awake()
+    {
+        colliderComponent = GetComponent<Collider2D>();
+
+        rendererComponent = GetComponent<SpriteRenderer>();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +24,6 @@ public class ShrinkScript : MonoBehaviour
 
         // Disable everything
         colliderComponent.enabled = false;
-        rendererComponent = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame

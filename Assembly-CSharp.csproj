@@ -68,7 +68,7 @@
     <Compile Include="Assets\Scripts\MoveScript.cs" />
     <Compile Include="Assets\Scripts\PlatformScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
-    <Compile Include="Assets\Scripts\PowerupScript.cs" />
+    <Compile Include="Assets\Scripts\PowerupTextScript.cs" />
     <Compile Include="Assets\Scripts\RendererExtensions.cs" />
     <Compile Include="Assets\Scripts\ScrollingScript.cs" />
     <Compile Include="Assets\Scripts\ShotScript.cs" />

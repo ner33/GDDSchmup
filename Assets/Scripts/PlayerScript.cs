@@ -18,12 +18,12 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rigidbodyComponent;
 
     public bool hasPowerUp = false;
-    private PowerupScript highscore;
+    private PowerupTextScript powerupScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        highscore = GameObject.Find("PowerupText").GetComponent<PowerupScript>();
+        powerupScript = GameObject.Find("PowerUpText").GetComponent<PowerupTextScript>();
     }
 
     // Update is called once per frame
@@ -111,9 +111,9 @@ public class PlayerScript : MonoBehaviour
         ShrinkScript shrink = collision.gameObject.GetComponent<ShrinkScript>();
         if (shrink != null)
         {
-            //TODO
             hasPowerUp = true;
-            
+            powerupScript.GrantShrink();
+            Destroy(collision.gameObject);
         }
 
         // Damage the player

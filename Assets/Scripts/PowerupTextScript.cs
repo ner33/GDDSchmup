@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PowerupScript : MonoBehaviour
+public class PowerupTextScript : MonoBehaviour
 {
     private string powerup;
 
