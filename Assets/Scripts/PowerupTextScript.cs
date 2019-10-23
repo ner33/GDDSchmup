@@ -32,4 +32,10 @@ public class PowerupTextScript : MonoBehaviour
         powerUpText.text = powerup;
     }
 
+    public void RemovePowerUp()
+    {
+        powerup = " ";
+
+        powerUpText.text = powerup;
+    }
 }

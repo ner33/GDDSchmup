@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
 
     public bool hasPowerUp = false;
     private PowerupTextScript powerupScript;
+    public float powerupTime = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -79,6 +80,23 @@ public class PlayerScript : MonoBehaviour
           Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
           transform.position.z
         );
+
+        //Shrink player for 5s on button press
+        if (Input.GetKey(KeyCode.E) && hasPowerUp)
+        {
+            var smallScale = new Vector3(0.5f, 0.5f, 1);
+            Collider2D playerCollider = GetComponent<Collider2D>();
+
+            if (playerCollider != null)
+            {
+
+                playerCollider.transform.localScale = new Vector3(playerCollider.bounds.size.x * smallScale.x, playerCollider.bounds.size.y * smallScale.y, playerCollider.bounds.size.z);                   ;
+            }
+            gameObject.transform.localScale = new Vector3(0.2f * smallScale.x, 0.2f * smallScale.y, gameObject.transform.localScale.z);
+            hasPowerUp = false;
+
+            powerupScript.RemovePowerUp();
+        }
 
         // End of the update method
     }

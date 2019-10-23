@@ -256,9 +256,9 @@ MonoBehaviour:
 
     1030087
 
-    Features:
+    Features: Highscore game with Shrink Powerup!
 
-    Play with arrow keys and ctrl to fire'
+    Play with arrow keys and ctrl to fire, use powerups with E'
 --- !u!222 &469056250
 CanvasRenderer:
   m_ObjectHideFlags: 0
