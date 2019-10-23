@@ -1,2 +1,4 @@
 Library/
-Build/
+Executable/
+Temp/
+Logs/
