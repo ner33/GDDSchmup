@@ -17,6 +17,9 @@ public class HealthScript : MonoBehaviour
     /// </summary>
     public bool isEnemy = true;
 
+    ///
+    private HighscoreScript highscore;
+
     /// <summary>
     /// Inflicts damage and check if the object should be destroyed
     /// </summary>
@@ -28,6 +31,10 @@ public class HealthScript : MonoBehaviour
         if (hp <= 0)
         {
             // Dead!
+            if (isEnemy)
+            {
+                highscore.IncreaseHighscore(1);
+            }
             Destroy(gameObject);
         }
     }
@@ -52,7 +59,7 @@ public class HealthScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        highscore = GameObject.Find("HighscoreText").GetComponent<HighscoreScript>();
     }
 
     // Update is called once per frame

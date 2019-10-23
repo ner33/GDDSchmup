@@ -17,11 +17,13 @@ public class PlayerScript : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rigidbodyComponent;
 
+    public bool hasPowerUp = false;
+    private PowerupScript highscore;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        highscore = GameObject.Find("PowerupText").GetComponent<PowerupScript>();
     }
 
     // Update is called once per frame
@@ -106,11 +108,29 @@ public class PlayerScript : MonoBehaviour
             damagePlayer = true;
         }
 
+        ShrinkScript shrink = collision.gameObject.GetComponent<ShrinkScript>();
+        if (shrink != null)
+        {
+            //TODO
+            hasPowerUp = true;
+            
+        }
+
         // Damage the player
         if (damagePlayer)
         {
             HealthScript playerHealth = this.GetComponent<HealthScript>();
             if (playerHealth != null) playerHealth.Damage(1);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Game Over.
+        var gameOver = FindObjectOfType<GameOverScript>();
+        if (gameOver != null)
+        { 
+            gameOver.ShowButtons();
         }
     }
 }
